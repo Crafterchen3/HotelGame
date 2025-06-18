@@ -1,0 +1,493 @@
+{
+  "buildings": [
+    {
+      "label": "Boomerang",
+      "basePrice": 500,
+      "sellPrice": 250,
+      "entrancePrice": 100,
+      "starPrices": [ 400, 600 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 1800,
+          "starLevel": 1
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 250,
+          "starLevel": 2
+        }
+      ]
+    },
+    {
+      "label": "President",
+      "basePrice": 3500,
+      "sellPrice": 1750,
+      "entrancePrice": 250,
+      "starPrices": [ 200, 400, 600, 800, 1200 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 5000,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 3000,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 2250,
+          "starLevel": 3
+        },
+        {
+          "label": "Nebengebäude 3",
+          "cost": 1750,
+          "starLevel": 4
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 5000,
+          "starLevel": 5
+        }
+      ]
+    },
+    {
+      "label": "Fujiyama",
+      "basePrice": 1000,
+      "sellPrice": 500,
+      "entrancePrice": 100,
+      "starPrices": [ 50, 100, 250 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 2200,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 1400,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 1400,
+          "starLevel": 2
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 500,
+          "starLevel": 3
+        }
+      ]
+    },
+    {
+      "label": "Safari",
+      "basePrice": 2000,
+      "sellPrice": 1000,
+      "entrancePrice": 150,
+      "starPrices": [ 100, 250, 500 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 2600,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 1200,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 1200,
+          "starLevel": 2
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 2000,
+          "starLevel": 3
+        }
+      ]
+    },
+    {
+      "label": "Taj Mahal",
+      "basePrice": 1500,
+      "sellPrice": 750,
+      "entrancePrice": 100,
+      "starPrices": [ 100, 200, 300 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 2400,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 1000,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 500,
+          "starLevel": 2
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 1000,
+          "starLevel": 3
+        }
+      ]
+    },
+    {
+      "label": "Waikiki",
+      "basePrice": 2500,
+      "sellPrice": 1250,
+      "entrancePrice": 200,
+      "starPrices": [ 200, 350, 500, 650, 1000 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 3500,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 2500,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 2500,
+          "starLevel": 3
+        },
+        {
+          "label": "Nebengebäude 3",
+          "cost": 1750,
+          "starLevel": 3
+        },
+        {
+          "label": "Nebengebäude 4",
+          "cost": 1750,
+          "starLevel": 4
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 2500,
+          "starLevel": 5
+        }
+      ]
+    },
+    {
+      "label": "Royal",
+      "basePrice": 2500,
+      "sellPrice": 1250,
+      "entrancePrice": 200,
+      "starPrices": [ 150, 300, 450, 600 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 3600,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 2600,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 1800,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 3",
+          "cost": 1800,
+          "starLevel": 3
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 3000,
+          "starLevel": 4
+        }
+      ]
+    },
+    {
+      "label": "L'Etoile",
+      "basePrice": 3000,
+      "sellPrice": 1500,
+      "entrancePrice": 250,
+      "starPrices": [ 150, 300, 450, 750 ],
+      "upgrades": [
+        {
+          "label": "Hauptgebäude",
+          "cost": 3300,
+          "starLevel": 1
+        },
+        {
+          "label": "Nebengebäude 1",
+          "cost": 2200,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 2",
+          "cost": 1800,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 3",
+          "cost": 1800,
+          "starLevel": 2
+        },
+        {
+          "label": "Nebengebäude 4",
+          "cost": 1800,
+          "starLevel": 3
+        },
+        {
+          "label": "Freizeitpark",
+          "cost": 4000,
+          "starLevel": 4
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "action" : "START",
+      "x": 43,
+      "y": 181,
+      "leftBuildingId"  : -1,
+      "rightBuildingId": -1
+    },
+    {
+      "action" : "BUILD",
+      "x": 36,
+      "y": 141,
+      "leftBuildingId": -1,
+      "rightBuildingId": 2
+    },
+    {
+      "action" : "BUY",
+      "x": 41,
+      "y": 109,
+      "leftBuildingId": 0,
+      "rightBuildingId": 2
+    },
+    {
+      "action" : "BUILD",
+      "x": 56,
+      "y": 86,
+      "leftBuildingId": 0,
+      "rightBuildingId": 2
+    },
+    {
+      "action" : "BUY",
+      "x": 79,
+      "y": 71,
+      "leftBuildingId": 0,
+      "rightBuildingId": 2
+    },
+    {
+      "action" : "BUILD",
+      "x": 106,
+      "y": 72,
+      "leftBuildingId": 0,
+      "rightBuildingId": 2
+    },
+    {
+      "action" : "ONE_FREE_ENTRANCE",
+      "x": 130,
+      "y": 83,
+      "leftBuildingId": -1,
+      "rightBuildingId": 2
+    },
+    {
+      "action" : "BUILD",
+      "x": 155,
+      "y": 86,
+      "leftBuildingId": -1,
+      "rightBuildingId": -1
+    },
+    {
+      "action" : "BUY",
+      "x": 179,
+      "y": 75,
+      "leftBuildingId": -1,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "BUY",
+      "x": 205,
+      "y": 81,
+      "leftBuildingId": 1,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "ONE_FREE_ENTRANCE",
+      "x": 225,
+      "y": 102,
+      "leftBuildingId": 1,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "BUY",
+      "x": 248,
+      "y": 119,
+      "leftBuildingId": 1,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUILD",
+      "x": 272,
+      "y": 127,
+      "leftBuildingId": 1,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUY",
+      "x": 299,
+      "y": 130,
+      "leftBuildingId": 1,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUILD",
+      "x": 321,
+      "y": 143,
+      "leftBuildingId": 1,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUY",
+      "x": 336,
+      "y": 171,
+      "leftBuildingId": 1,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUILD",
+      "x": 335,
+      "y": 205,
+      "leftBuildingId": 5,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUY",
+      "x": 316,
+      "y": 230,
+      "leftBuildingId": 5,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "ONE_FREE_ENTRANCE",
+      "x": 288,
+      "y": 236,
+      "leftBuildingId": 5,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUILD",
+      "x": 261,
+      "y": 229,
+      "leftBuildingId": 5,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUY",
+      "x": 236,
+      "y": 220,
+      "leftBuildingId": 5,
+      "rightBuildingId": 6
+    },
+    {
+      "action" : "BUY",
+      "x": 211,
+      "y": 210,
+      "leftBuildingId": 4,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "BUILD",
+      "x": 184,
+      "y": 205,
+      "leftBuildingId": 4,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "BUY",
+      "x": 164,
+      "y": 222,
+      "leftBuildingId": 4,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "ONE_FREE_ENTRANCE",
+      "x": 160,
+      "y": 253,
+      "leftBuildingId": 4,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "BUILD",
+      "x": 152,
+      "y": 285,
+      "leftBuildingId": 4,
+      "rightBuildingId": -1
+    },
+    {
+      "action" : "BUILD",
+      "x": 117,
+      "y": 296,
+      "leftBuildingId": 3,
+      "rightBuildingId": -1
+    },
+    {
+      "action" : "BUILD",
+      "x": 97,
+      "y": 269,
+      "leftBuildingId": 3,
+      "rightBuildingId": -1
+    },
+    {
+      "action" : "BUY",
+      "x": 97,
+      "y": 237,
+      "leftBuildingId": 3,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "ONE_FREE_ENTRANCE",
+      "x": 95,
+      "y": 208,
+      "leftBuildingId": 3,
+      "rightBuildingId": 7
+    },
+    {
+      "action" : "BUILD",
+      "x": 78,
+      "y": 186,
+      "leftBuildingId": 3,
+      "rightBuildingId": -1
+    }
+  ],
+  "startPositions" : [
+    {
+      "x": 27,
+      "y": 207
+    },
+    {
+      "x": 38,
+      "y": 207
+    },
+    {
+      "x": 48,
+      "y": 207
+    },
+    {
+      "x": 59,
+      "y": 207
+    }
+  ]
+}
