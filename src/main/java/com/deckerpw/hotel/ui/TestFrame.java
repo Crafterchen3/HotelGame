@@ -1,6 +1,6 @@
 package com.deckerpw.hotel.ui;
 
-import com.deckerpw.hotel.ui.components.MainPanel;
+import com.deckerpw.hotel.ui.components.panel.MainPanel;
 import com.deckerpw.hotel.ui.style.HotelButtonBorder;
 
 import javax.swing.*;
@@ -16,13 +16,7 @@ public class TestFrame extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        JButton closeButton = new JButton("");
-        closeButton.addActionListener(e -> System.exit(0));
-        closeButton.setFocusPainted(false);
-        closeButton.setBackground(Color.RED.darker());
-        closeButton.setBorder(new HotelButtonBorder(closeButton));
-        closeButton.setBounds(1920 - 30, 0, 30, 30);
-        add(closeButton);
+
 
         MainPanel mainPanel = new MainPanel();
         mainPanel.setEnabled(false);

@@ -1,4 +1,4 @@
-package com.deckerpw.hotel.ui.components;
+package com.deckerpw.hotel.ui.components.panel;
 
 import javax.swing.*;
 import java.awt.*;

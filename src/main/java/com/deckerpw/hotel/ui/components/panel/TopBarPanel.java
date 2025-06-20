@@ -2,13 +2,11 @@ package com.deckerpw.hotel.ui.components.panel;
 
 import com.deckerpw.hotel.game.Game;
 import com.deckerpw.hotel.game.Player;
-import com.deckerpw.hotel.ui.components.TexturePanel;
+import com.deckerpw.hotel.ui.style.HotelButtonBorder;
 import com.deckerpw.hotel.ui.style.StyleUtils;
 
 import javax.swing.*;
 import javax.swing.border.AbstractBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class TopBarPanel extends TexturePanel {
@@ -16,20 +14,31 @@ public class TopBarPanel extends TexturePanel {
     private final JLabel[] labels;
 
     public TopBarPanel() {
-        super(new GridLayout(1, Game.getPlayers().length));
+        super(new BorderLayout());
         setTexture(StyleUtils.createTexturePaint(Color.DARK_GRAY));
         setPreferredSize(new Dimension(0,30));
         setBorder(new SimpleBorder());
-        Player[] players = Game.getPlayers();
-        labels = new JLabel[players.length];
-        for (Player player : players) {
-            JLabel jLabel = new JLabel(player.name+": "+player.getMoney()+" DM");
-            jLabel.setHorizontalAlignment(JLabel.CENTER);
-            jLabel.setForeground(StyleUtils.getPlayerColor(player.id).brighter().brighter());
-            jLabel.setFont(StyleUtils.MC_FONT.deriveFont(Font.PLAIN, 16));
-            add(jLabel);
-            labels[player.id] = jLabel;
+        TransparentPanel panel = new TransparentPanel(new GridLayout(1, Game.getPlayers().length));
+        {
+            Player[] players = Game.getPlayers();
+            labels = new JLabel[players.length];
+            for (Player player : players) {
+                JLabel jLabel = new JLabel(player.name + ": " + player.getMoney() + " DM");
+                jLabel.setHorizontalAlignment(JLabel.CENTER);
+                jLabel.setForeground(StyleUtils.getPlayerColor(player.id).brighter().brighter());
+                jLabel.setFont(StyleUtils.MC_FONT.deriveFont(Font.PLAIN, 16));
+                panel.add(jLabel);
+                labels[player.id] = jLabel;
+            }
         }
+        add(panel,  BorderLayout.CENTER);
+        JButton closeButton = new JButton("");
+        closeButton.addActionListener(e -> System.exit(0));
+        closeButton.setFocusPainted(false);
+        closeButton.setBackground(Color.RED.darker());
+        closeButton.setBorder(new HotelButtonBorder(closeButton));
+        closeButton.setPreferredSize(new Dimension(27, 27));
+        add(closeButton, BorderLayout.EAST);
     }
 
     public void update() {

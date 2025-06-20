@@ -1,6 +1,7 @@
 package com.deckerpw.hotel.ui.components;
 
 import com.deckerpw.hotel.game.*;
+import com.deckerpw.hotel.ui.components.panel.MainPanel;
 import com.deckerpw.hotel.ui.style.StyleUtils;
 
 import javax.swing.*;
@@ -9,7 +10,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BoardViewer extends JComponent implements MouseListener, MouseMotionListener {

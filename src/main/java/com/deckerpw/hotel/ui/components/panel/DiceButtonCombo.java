@@ -6,8 +6,10 @@ import com.deckerpw.hotel.ui.style.StyleUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class DiceButtonCombo extends TransparentPanel {
+public class DiceButtonCombo extends TransparentPanel implements KeyListener {
 
     private final HotelButton rollButton = new HotelButton("Würfeln");
     private final JLabel diceResultLabel = new JLabel("");
@@ -15,6 +17,9 @@ public class DiceButtonCombo extends TransparentPanel {
 
     public DiceButtonCombo(DiceEventListener diceEventListener) {
         super(new BorderLayout());
+        this.addKeyListener(this);
+        setFocusable(true);
+        requestFocus();
         this.diceEventListener = diceEventListener;
         rollButton.addActionListener(e -> {
             rollButton.setEnabled(false);
@@ -29,9 +34,9 @@ public class DiceButtonCombo extends TransparentPanel {
 
                     }
                 }
-                try{
+                try {
                     Thread.sleep(1000);
-                }catch (InterruptedException ex){
+                } catch (InterruptedException ex) {
 
                 }
 
@@ -51,6 +56,49 @@ public class DiceButtonCombo extends TransparentPanel {
     public void reset() {
         rollButton.setEnabled(true);
         diceResultLabel.setText("");
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyChar()) {
+            case '1':
+                diceEventListener.onDiceRoll(1);
+                break;
+            case '2':
+                diceEventListener.onDiceRoll(2);
+                break;
+            case '3':
+                diceEventListener.onDiceRoll(3);
+                break;
+            case '4':
+                diceEventListener.onDiceRoll(4);
+                break;
+            case '5':
+                diceEventListener.onDiceRoll(5);
+                break;
+            case '6':
+                diceEventListener.onDiceRoll(6);
+                break;
+            case '7':
+                diceEventListener.onDiceRoll(7);
+                break;
+            case '8':
+                diceEventListener.onDiceRoll(8);
+                break;
+            case '9':
+                diceEventListener.onDiceRoll(9);
+                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 
     public interface DiceEventListener {

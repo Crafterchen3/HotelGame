@@ -1,6 +1,6 @@
 package com.deckerpw.hotel.game;
 
-import com.deckerpw.hotel.ui.components.MainPanel;
+import com.deckerpw.hotel.ui.components.panel.MainPanel;
 
 import java.util.ArrayList;
 

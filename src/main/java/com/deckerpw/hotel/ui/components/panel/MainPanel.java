@@ -1,8 +1,8 @@
-package com.deckerpw.hotel.ui.components;
+package com.deckerpw.hotel.ui.components.panel;
 
 import com.deckerpw.hotel.game.*;
-import com.deckerpw.hotel.ui.components.panel.*;
-import com.deckerpw.hotel.ui.style.HotelButtonBorder;
+import com.deckerpw.hotel.ui.components.BoardViewer;
+import com.deckerpw.hotel.ui.components.HotelButton;
 import com.deckerpw.hotel.ui.style.HotelPanelBorder;
 import com.deckerpw.hotel.ui.style.StyleUtils;
 
@@ -30,6 +30,7 @@ public class MainPanel extends TexturePanel {
     private final TopBarPanel topBarPanel;
     private HotelButton continueButton;
     private BoardViewer boardViewer;
+    private boolean entranceBuyLinePassed = false;
 
     public MainPanel() {
         instance = this;
@@ -103,8 +104,7 @@ public class MainPanel extends TexturePanel {
                         if (prevPos <= 6 && prevPos + actualMoves > 6)
                             currentPlayer.addMoney(2000);
                         else if (prevPos <= 25 && prevPos + actualMoves > 25) {
-                            boardViewer.entrancePlaceMode = BoardViewer.EntrancePlaceMode.ON;
-                            boardViewer.repaint();
+                            entranceBuyLinePassed = true;
                         }
                         if (field.getEntranceSide() != 0 && field.getBuilding(field.getEntranceSide()).getOwnerId() != currentPlayer.id) {
                             showPayPanel();
@@ -118,7 +118,7 @@ public class MainPanel extends TexturePanel {
 
                 TransparentPanel payPanel = new TransparentPanel(new BorderLayout(0, 10));
                 {
-                    payTextArea = new JTextArea("Du bist an einem gegenerischem Eingang\ngelandet, nun musst du die Anzahl\nübernachtungen Würfeln.\nPreis pro Nacht: ... DM");
+                    payTextArea = new JTextArea("Du bist an einem gegenerischem\n Eingang gelandet, nun musst du die Anzahl übernachtungen Würfeln.\nPreis pro Nacht: ... DM");
                     payTextArea.setEditable(false);
                     payTextArea.setOpaque(false);
                     payTextArea.setBackground(new Color(0, 0, 0, 0));
@@ -131,7 +131,7 @@ public class MainPanel extends TexturePanel {
                         Field field = currentPlayer.getCurrentField();
                         Building building = field.getBuilding(field.getEntranceSide());
                         Player owner = Game.getPlayer(building.getOwnerId());
-                        int entrancePrice = building.getEntrancePrice();
+                        int entrancePrice = building.getCurrentStarPrice();
                         int endPrice = entrancePrice * randInt;
                         payTextArea.setText(payTextArea.getText() + "\nDu musst " + endPrice + " DM an " + owner.name + " zahlen!");
                         currentPlayer.deductMoney(endPrice);
@@ -281,6 +281,11 @@ public class MainPanel extends TexturePanel {
     }
 
     private void handleAction(Field field) {
+        if (entranceBuyLinePassed) {
+            boardViewer.entrancePlaceMode = BoardViewer.EntrancePlaceMode.ON;
+            boardViewer.repaint();
+            entranceBuyLinePassed = false;
+        }
         continueButton.setEnabled(true);
         switch (field.action) {
             case BUY:
@@ -329,12 +334,13 @@ public class MainPanel extends TexturePanel {
         Player currentPlayer = Game.getCurrentPlayer();
         Field field = currentPlayer.getCurrentField();
         Building building = field.getBuilding(field.getEntranceSide());
-        payTextArea.setText("Du bist an einem gegenerischem Eingang\ngelandet, nun musst du die Anzahl\nübernachtungen Würfeln.\nPreis pro Nacht: " + building.getEntrancePrice() + " DM");
+        payTextArea.setText("Du bist an einem gegenerischem Eingang\ngelandet, nun musst du die Anzahl\nübernachtungen Würfeln.\nPreis pro Nacht: " + building.getCurrentStarPrice() + " DM");
         mainCardLayout.show(middlePanel, "pay");
     }
 
     private void showEntrancePlacePanel() {
-        boardViewer.entrancePlaceMode = BoardViewer.EntrancePlaceMode.ONE_FREE_PLACE;
+        if (boardViewer.entrancePlaceMode == BoardViewer.EntrancePlaceMode.OFF)
+            boardViewer.entrancePlaceMode = BoardViewer.EntrancePlaceMode.ONE_FREE_PLACE;
         boardViewer.repaint();
         mainCardLayout.show(middlePanel, "entrance");
     }
