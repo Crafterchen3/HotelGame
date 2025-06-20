@@ -20,9 +20,8 @@ public class DiceButtonCombo extends TransparentPanel {
             rollButton.setEnabled(false);
             new Thread(() -> {
                 int randInt = 0;
-                for (int i = 0; i < 1; i++) {
-//                    randInt = (int) (Math.random() * 6) + 1;
-                    randInt = 6; // DEBUG
+                for (int i = 0; i < 50; i++) {
+                    randInt = (int) (Math.random() * 6) + 1;
                     diceResultLabel.setText(randInt + "");
                     try {
                         Thread.sleep(((int) (i * 2f)) ^ 2);

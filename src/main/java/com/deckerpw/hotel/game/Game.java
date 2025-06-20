@@ -1,5 +1,6 @@
 package com.deckerpw.hotel.game;
 
+import com.deckerpw.hotel.ui.GameCreatorFrame;
 import com.deckerpw.hotel.ui.TestFrame;
 
 import javax.imageio.ImageIO;
@@ -14,11 +15,15 @@ public class Game {
     private static int currentPlayer = 0;
 
     public static void main(String[] args) {
+        new GameCreatorFrame();
+    }
+
+    public static void startGame(String[] playerNames){
         board = Board.loadBoard(Game.class.getResource("/boards/hotel_1986/board.json"));
-        players = new Player[]{
-                new Player("Paul", 0),
-                new Player("Nathan", 1)
-        };
+        players = new Player[playerNames.length];
+        for (int i = 0; i < playerNames.length; i++) {
+            players[i] = new Player(playerNames[i],i);
+        }
         new TestFrame();
     }
 

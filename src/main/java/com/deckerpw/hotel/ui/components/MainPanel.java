@@ -1,10 +1,7 @@
 package com.deckerpw.hotel.ui.components;
 
 import com.deckerpw.hotel.game.*;
-import com.deckerpw.hotel.ui.components.panel.BuyBuildingPanel;
-import com.deckerpw.hotel.ui.components.panel.DiceButtonCombo;
-import com.deckerpw.hotel.ui.components.panel.TransparentPanel;
-import com.deckerpw.hotel.ui.components.panel.UpgradeBuildingPanel;
+import com.deckerpw.hotel.ui.components.panel.*;
 import com.deckerpw.hotel.ui.style.HotelButtonBorder;
 import com.deckerpw.hotel.ui.style.HotelPanelBorder;
 import com.deckerpw.hotel.ui.style.StyleUtils;
@@ -30,6 +27,7 @@ public class MainPanel extends TexturePanel {
     private final JTextArea payTextArea;
     private final BuyBuildingPanel buyBuildingPanel;
     private final UpgradeBuildingPanel upgradeBuildingPanel;
+    private final TopBarPanel topBarPanel;
     private HotelButton continueButton;
     private BoardViewer boardViewer;
 
@@ -42,7 +40,7 @@ public class MainPanel extends TexturePanel {
         TexturePanel sidePanel = new TexturePanel(new BorderLayout(0, 20));
         {
             sidePanel.setPreferredSize(new Dimension(708, 0));
-            sidePanel.setBorder(new EmptyBorder(22, 15, 23, 15));
+            sidePanel.setBorder(new EmptyBorder(20, 15, 20, 15));
             sidePanel.setOpaque(false);
             sidePanel.setBackground(new Color(0, 0, 0, 0));
             topPanel = new TexturePanel(new GridLayout(1, 2));
@@ -265,22 +263,16 @@ public class MainPanel extends TexturePanel {
             sidePanel.add(bottomPanel, BorderLayout.SOUTH);
         }
         add(sidePanel, BorderLayout.WEST);
+        topBarPanel = new TopBarPanel();
+        add(topBarPanel, BorderLayout.NORTH);
         TransparentPanel boardPanel = new TransparentPanel(new GridBagLayout());
         {
             boardViewer = new BoardViewer();
             boardPanel.add(boardViewer);
         }
-
-        // Additional Panels
         add(boardPanel, BorderLayout.CENTER);
 
-//        new Timer(300, (e) -> {
-//            Game.getCurrentPlayer().move(1);
-//            boardViewer.repaint();
-//        }).start();
-        //mainCardLayout.first(middlePanel);
-        continueButton.setEnabled(true);
-        mainCardLayout.show(middlePanel, "debug");
+        mainCardLayout.first(middlePanel);
         updatePlayerInfo();
     }
 
@@ -317,6 +309,7 @@ public class MainPanel extends TexturePanel {
         topPanel.repaint();
         middlePanel.setTexture(StyleUtils.createTexturePaint(StyleUtils.getPlayerColor(Game.getCurrentPlayerIndex())));
         middlePanel.repaint();
+        topBarPanel.update();
         boardViewer.repaint();
     }
 

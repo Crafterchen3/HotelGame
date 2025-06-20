@@ -11,6 +11,7 @@ public class Player {
     public int position = -1; // Field outside the board, before the start field.
     public ArrayList<Integer> buildings = new ArrayList<>(); // Owned Buildings
     private int money = 12000;
+
     public Player(String name, int id) {
         this.name = name;
         this.id = id;
@@ -39,33 +40,30 @@ public class Player {
     }
 
     public void deductMoney(int amount) {
-        if (Game.getCurrentPlayer() == this) {
-            new Thread(() -> {
-                for (int i = 0; i < amount / 25; i++) {
-                    this.money -= 25;
-                    MainPanel.getInstance().updatePlayerInfo();
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException ex) {
+        new Thread(() -> {
+            for (int i = 0; i < amount / 25; i++) {
+                this.money -= 25;
+                MainPanel.getInstance().updatePlayerInfo();
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
 
-                    }
                 }
-            }).start();
-        }
+            }
+        }).start();
     }
 
     public void addMoney(int amount) {
-        if (Game.getCurrentPlayer() == this) {
-            new Thread(() -> {
-                for (int i = 0; i < amount / 25; i++) {
-                    this.money += 25;
-                    MainPanel.getInstance().updatePlayerInfo();
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException ex) {}
+        new Thread(() -> {
+            for (int i = 0; i < amount / 25; i++) {
+                this.money += 25;
+                MainPanel.getInstance().updatePlayerInfo();
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
                 }
-            }).start();
-        }
+            }
+        }).start();
     }
 
 
