@@ -1,7 +1,7 @@
 package com.deckerpw.hotel.game;
 
-import com.deckerpw.hotel.ui.GameCreatorFrame;
-import com.deckerpw.hotel.ui.TestFrame;
+import com.deckerpw.hotel.ui.frame.GameCreatorFrame;
+import com.deckerpw.hotel.ui.frame.MainFrame;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -24,7 +24,7 @@ public class Game {
         for (int i = 0; i < playerNames.length; i++) {
             players[i] = new Player(playerNames[i],i);
         }
-        new TestFrame();
+        new MainFrame();
     }
 
     public static BufferedImage getBoardAsset(String assetName) {
@@ -33,7 +33,7 @@ public class Game {
 
     private static BufferedImage loadImage(String path) {
         try {
-            return ImageIO.read(TestFrame.class.getResource(path));
+            return ImageIO.read(MainFrame.class.getResource(path));
         } catch (IOException e) {
             throw new RuntimeException("Failed to load image: " + path, e);
         }

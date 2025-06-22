@@ -1,14 +1,12 @@
-package com.deckerpw.hotel.ui;
+package com.deckerpw.hotel.ui.frame;
 
 import com.deckerpw.hotel.ui.components.panel.MainPanel;
-import com.deckerpw.hotel.ui.style.HotelButtonBorder;
 
 import javax.swing.*;
-import java.awt.*;
 
-public class TestFrame extends JFrame {
+public class MainFrame extends JFrame {
 
-    public TestFrame() {
+    public MainFrame() {
         super("Test Frame");
         setSize(1920, 1080);
         setLayout(null);

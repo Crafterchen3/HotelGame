@@ -1,7 +1,6 @@
-package com.deckerpw.hotel.ui;
+package com.deckerpw.hotel.ui.frame;
 
 import com.deckerpw.hotel.game.Game;
-import com.deckerpw.hotel.game.Player;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

@@ -16,24 +16,24 @@ public class BoardViewer extends JComponent implements MouseListener, MouseMotio
 
     private final Board board;
     private final BufferedImage mapImage;
-    private final BufferedImage sideMapImage;
+    private final BufferedImage entranceMapImage;
     private final BufferedImage[][] buildingImages;
     private final BufferedImage[] playerImages;
     private final MainPanel mainPanel = MainPanel.getInstance();
     private final int scale = 3;
     public EntrancePlaceMode entrancePlaceMode = EntrancePlaceMode.OFF;
 
-    public BoardViewer(Board board, BufferedImage mapImage, BufferedImage buildingsImage, BufferedImage playersImage, BufferedImage sideMapImage) {
+    public BoardViewer(Board board, BufferedImage mapImage, BufferedImage buildingsImage, BufferedImage playersImage, BufferedImage entranceMapImage) {
         this.board = board;
         this.mapImage = mapImage;
-        this.sideMapImage = sideMapImage;
+        this.entranceMapImage = entranceMapImage;
 
-        //Calculate the width of the array
+        //Calculate the width and height of the array
         int width = board.buildings.length;
         int height = 0;
         for (Building building : board.buildings) {
             if (building.upgrades.length > height) {
-                height = building.upgrades.length;
+                height = building.upgrades.length + 2;
             }
         }
         buildingImages = new BufferedImage[width][height];
@@ -54,7 +54,7 @@ public class BoardViewer extends JComponent implements MouseListener, MouseMotio
     }
 
     public BoardViewer() {
-        this(Game.getBoard(), Game.getBoardAsset("map.png"), Game.getBoardAsset("buildings.png"), Game.getBoardAsset("players.png"), Game.getBoardAsset("sidemap.png"));
+        this(Game.getBoard(), Game.getBoardAsset("map.png"), Game.getBoardAsset("buildings.png"), Game.getBoardAsset("players.png"), Game.getBoardAsset("entrance-map.png"));
     }
 
     @Override
@@ -80,7 +80,7 @@ public class BoardViewer extends JComponent implements MouseListener, MouseMotio
         for (int i = 0; i < board.buildings.length; i++) {
             g2d.drawImage(buildingImages[i][board.buildings[i].getUpgradeLevel()], 0, 0, mapImage.getWidth() * scale, mapImage.getHeight() * scale, null);
         }
-        BufferedImage temp = new BufferedImage(sideMapImage.getWidth(), sideMapImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        BufferedImage temp = new BufferedImage(entranceMapImage.getWidth(), entranceMapImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
         HashMap<Integer,Color> colors = new HashMap<>();
         for (Field field : board.fields) {
             if (entrancePlaceMode != EntrancePlaceMode.OFF){
@@ -103,10 +103,10 @@ public class BoardViewer extends JComponent implements MouseListener, MouseMotio
                     break;
             }
         }
-        for (int x = 0; x < sideMapImage.getWidth(); x++) {
-            for (int y = 0; y < sideMapImage.getHeight(); y++) {
-                if (colors.containsKey(sideMapImage.getRGB(x, y))) {
-                    temp.setRGB(x, y, colors.get(sideMapImage.getRGB(x,y)).getRGB());
+        for (int x = 0; x < entranceMapImage.getWidth(); x++) {
+            for (int y = 0; y < entranceMapImage.getHeight(); y++) {
+                if (colors.containsKey(entranceMapImage.getRGB(x, y))) {
+                    temp.setRGB(x, y, colors.get(entranceMapImage.getRGB(x,y)).getRGB());
                 }
             }
         }
@@ -130,7 +130,7 @@ public class BoardViewer extends JComponent implements MouseListener, MouseMotio
         if (entrancePlaceMode != EntrancePlaceMode.OFF) {
             int x = e.getX() / scale;
             int y = e.getY() / scale;
-            Color color = new Color(sideMapImage.getRGB(x,y));
+            Color color = new Color(entranceMapImage.getRGB(x,y));
             if (!color.equals(new Color(0, 0, 0, 0))){
                 int pos = color.getRed();
                 int side = color.getGreen();
@@ -170,7 +170,7 @@ public class BoardViewer extends JComponent implements MouseListener, MouseMotio
         if (entrancePlaceMode == EntrancePlaceMode.ON) {
             int x = e.getX() / scale;
             int y = e.getY() / scale;
-            Color color = new Color(sideMapImage.getRGB(x,y));
+            Color color = new Color(entranceMapImage.getRGB(x,y));
             if (!color.equals(new Color(0, 0, 0, 0))){
                 int pos = color.getRed();
                 int side = color.getGreen();
